@@ -1,0 +1,6 @@
+{
+  "name": "Stream Guide",
+  "description": "Curated streaming guide tracking the highest-rated movies and series across major US platforms, plus November 2026 release schedules and personal watchlist management.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

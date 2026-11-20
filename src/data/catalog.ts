@@ -1,0 +1,3469 @@
+export type MediaType = "movie" | "show";
+
+export type PlatformName =
+  | "Netflix"
+  | "HBO Max"
+  | "Prime Video"
+  | "Hulu"
+  | "Disney+"
+  | "Apple TV"
+  | "Peacock"
+  | "Paramount+"
+  | "MGM+";
+
+export type GenreName =
+  | "Drama"
+  | "Comedy"
+  | "Suspense"
+  | "Horror"
+  | "Sci-Fi"
+  | "Action"
+  | "Animation"
+  | "Romance"
+  | "Fantasy"
+  | "Family";
+
+export interface CatalogItem {
+  id: string;
+  rank?: number;
+  title: string;
+  sub: string;
+  type: MediaType;
+  platform: PlatformName;
+  genres: GenreName[];
+  score: number | null;
+  isEstimate?: boolean;
+  releaseDate?: string;
+  added: string | null;
+  description: string;
+  source: "top" | "new";
+}
+
+export const REFERENCE_TODAY_ISO = "2026-11-19";
+
+export const PLATFORM_COLORS: Record<PlatformName, string> = {
+  "Netflix": "#e50914",
+  "HBO Max": "#7b3fe4",
+  "Prime Video": "#1a98ff",
+  "Hulu": "#1ce783",
+  "Disney+": "#2a4bd7",
+  "Apple TV": "#8e8e93",
+  "Peacock": "#f2b600",
+  "Paramount+": "#0064ff",
+  "MGM+": "#c9a227"
+};
+
+export const GENRES: GenreName[] = [
+  "Drama",
+  "Comedy",
+  "Suspense",
+  "Horror",
+  "Sci-Fi",
+  "Action",
+  "Animation",
+  "Romance",
+  "Fantasy",
+  "Family"
+];
+
+export const PLATFORMS: PlatformName[] = [
+  "Netflix",
+  "HBO Max",
+  "Prime Video",
+  "Hulu",
+  "Disney+",
+  "Apple TV",
+  "Peacock",
+  "Paramount+",
+  "MGM+"
+];
+
+export const TOP_TITLES: CatalogItem[] = [
+  {
+    "id": "top-silo-season-3-apple-tv",
+    "rank": 1,
+    "title": "Silo",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Sci-Fi",
+      "Drama"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "Thousands live in a giant underground silo, and an engineer starts uncovering the truth behind its rules.",
+    "source": "top"
+  },
+  {
+    "id": "top-invincible-season-4-prime-video",
+    "rank": 2,
+    "title": "Invincible",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Animation",
+      "Sci-Fi",
+      "Action"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "A teenager inherits his father's powers, and the superhero life turns out darker than he expected. Animated.",
+    "source": "top"
+  },
+  {
+    "id": "top-one-piece-season-2-netflix",
+    "rank": 3,
+    "title": "One Piece",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Fantasy"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "Luffy and his Straw Hat crew sail the Grand Line in the live-action version of the hit manga.",
+    "source": "top"
+  },
+  {
+    "id": "top-deadloch-season-2-prime-video",
+    "rank": 4,
+    "title": "Deadloch",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "An Australian crime comedy-mystery that pairs two very different detectives.",
+    "source": "top"
+  },
+  {
+    "id": "top-parasite-2019-hbo-max",
+    "rank": 5,
+    "title": "Parasite",
+    "sub": "2019",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 99,
+    "isEstimate": true,
+    "added": null,
+    "description": "A poor family schemes its way into a wealthy household, with dark consequences.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-wild-robot-2024-prime-video",
+    "rank": 6,
+    "title": "The Wild Robot",
+    "sub": "2024",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Animation",
+      "Family",
+      "Sci-Fi"
+    ],
+    "score": 98,
+    "isEstimate": false,
+    "added": null,
+    "description": "A shipwrecked robot learns to raise an orphaned gosling on a wild island. Animated.",
+    "source": "top"
+  },
+  {
+    "id": "top-widow-s-bay-season-1-apple-tv",
+    "rank": 7,
+    "title": "Widow's Bay",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy",
+      "Horror"
+    ],
+    "score": 98,
+    "isEstimate": false,
+    "added": null,
+    "description": "The mayor of a sleepy New England island tries to boost tourism, even though the place is cursed.",
+    "source": "top"
+  },
+  {
+    "id": "top-portrait-of-a-lady-on-fire-2019-hulu",
+    "rank": 8,
+    "title": "Portrait of a Lady on Fire",
+    "sub": "2019",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "score": 98,
+    "isEstimate": true,
+    "added": null,
+    "description": "In 18th-century France, a painter secretly portrays a reluctant bride-to-be, and the two fall in love.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-farewell-2019-prime-video",
+    "rank": 9,
+    "title": "The Farewell",
+    "sub": "2019",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 98,
+    "isEstimate": true,
+    "added": null,
+    "description": "A family stages a wedding to hide a grandmother's terminal diagnosis from her.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-bear-season-5-hulu",
+    "rank": 10,
+    "title": "The Bear",
+    "sub": "Season 5",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": null,
+    "description": "A chef and his Chicago kitchen crew keep pushing to make their restaurant work.",
+    "source": "top"
+  },
+  {
+    "id": "top-mad-max-fury-road-2015-hbo-max",
+    "rank": 11,
+    "title": "Mad Max: Fury Road",
+    "sub": "2015",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "score": 97,
+    "isEstimate": true,
+    "added": null,
+    "description": "Max joins Furiosa on a desert chase to free a tyrant's captives.",
+    "source": "top"
+  },
+  {
+    "id": "top-spider-man-into-the-spider-verse-2018-netflix",
+    "rank": 12,
+    "title": "Spider-Man: Into the Spider-Verse",
+    "sub": "2018",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Action",
+      "Family"
+    ],
+    "score": 97,
+    "isEstimate": true,
+    "added": null,
+    "description": "Miles Morales becomes Spider-Man and meets heroes from other dimensions. Animated.",
+    "source": "top"
+  },
+  {
+    "id": "top-from-season-4-mgm",
+    "rank": 13,
+    "title": "From",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "MGM+",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 96,
+    "isEstimate": false,
+    "added": null,
+    "description": "Travelers get stuck in a small town they can't leave, where monsters come out at night.",
+    "source": "top"
+  },
+  {
+    "id": "top-till-2022-prime-video",
+    "rank": 14,
+    "title": "Till",
+    "sub": "2022",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "score": 96,
+    "isEstimate": false,
+    "added": null,
+    "description": "A mother seeks justice after her son's 1955 murder in Mississippi.",
+    "source": "top"
+  },
+  {
+    "id": "top-roma-2018-netflix",
+    "rank": 15,
+    "title": "Roma",
+    "sub": "2018",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 96,
+    "isEstimate": true,
+    "added": null,
+    "description": "A year in the life of a domestic worker in 1970s Mexico City.",
+    "source": "top"
+  },
+  {
+    "id": "top-anatomy-of-a-fall-2023-hulu",
+    "rank": 16,
+    "title": "Anatomy of a Fall",
+    "sub": "2023",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 96,
+    "isEstimate": true,
+    "added": null,
+    "description": "A writer is tried over her husband's death, and their son becomes the key witness.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-comeback-season-3-hbo-max",
+    "rank": 17,
+    "title": "The Comeback",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 95,
+    "isEstimate": false,
+    "added": null,
+    "description": "Valerie Cherish returns with yet another attempt at a TV comeback.",
+    "source": "top"
+  },
+  {
+    "id": "top-past-lives-2023-netflix",
+    "rank": 18,
+    "title": "Past Lives",
+    "sub": "2023",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "score": 95,
+    "isEstimate": true,
+    "added": null,
+    "description": "Two childhood friends reconnect decades after one of their families emigrated.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-handmaiden-2016-prime-video",
+    "rank": 19,
+    "title": "The Handmaiden",
+    "sub": "2016",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Suspense",
+      "Romance"
+    ],
+    "score": 95,
+    "isEstimate": true,
+    "added": null,
+    "description": "A con man, a maid and a wealthy heiress tangle in 1930s Korea.",
+    "source": "top"
+  },
+  {
+    "id": "top-everything-everywhere-all-at-once-2022-prime-video",
+    "rank": 20,
+    "title": "Everything Everywhere All at Once",
+    "sub": "2022",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Sci-Fi",
+      "Comedy",
+      "Action"
+    ],
+    "score": 94,
+    "isEstimate": true,
+    "added": null,
+    "description": "A laundromat owner is pulled into a multiverse fight to save everything.",
+    "source": "top"
+  },
+  {
+    "id": "top-whiplash-2014-netflix",
+    "rank": 21,
+    "title": "Whiplash",
+    "sub": "2014",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 94,
+    "isEstimate": true,
+    "added": null,
+    "description": "A young drummer faces an abusive conservatory teacher who pushes him to the edge.",
+    "source": "top"
+  },
+  {
+    "id": "top-house-of-the-dragon-season-3-hbo-max",
+    "rank": 22,
+    "title": "House of the Dragon",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama",
+      "Fantasy"
+    ],
+    "score": 93,
+    "isEstimate": false,
+    "added": null,
+    "description": "The Targaryen civil war known as the Dance of the Dragons continues.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-zone-of-interest-2023-hbo-max",
+    "rank": 23,
+    "title": "The Zone of Interest",
+    "sub": "2023",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "score": 93,
+    "isEstimate": true,
+    "added": null,
+    "description": "A Nazi commandant's family lives a quiet domestic life beside Auschwitz.",
+    "source": "top"
+  },
+  {
+    "id": "top-paradise-season-2-hulu",
+    "rank": 24,
+    "title": "Paradise",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 90,
+    "isEstimate": false,
+    "added": null,
+    "description": "A thriller set in a seemingly perfect community with something to hide.",
+    "source": "top"
+  },
+  {
+    "id": "top-for-all-mankind-season-5-apple-tv",
+    "rank": 25,
+    "title": "For All Mankind",
+    "sub": "Season 5",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Sci-Fi",
+      "Drama"
+    ],
+    "score": 86,
+    "isEstimate": false,
+    "added": null,
+    "description": "Alternate history in which the space race never ended.",
+    "source": "top"
+  },
+  {
+    "id": "top-nope-2022-prime-video",
+    "rank": 26,
+    "title": "Nope",
+    "sub": "2022",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Horror",
+      "Sci-Fi"
+    ],
+    "score": 82,
+    "isEstimate": true,
+    "added": null,
+    "description": "Siblings on a California horse ranch run into something strange in the sky.",
+    "source": "top"
+  },
+  {
+    "id": "top-dtf-st-louis-season-1-hbo-max",
+    "rank": 27,
+    "title": "DTF St. Louis",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "score": 88,
+    "isEstimate": true,
+    "added": null,
+    "description": "A murder mystery tangled up in a midwestern dating scene.",
+    "source": "top"
+  },
+  {
+    "id": "top-rooster-season-1-hbo-max",
+    "rank": 28,
+    "title": "Rooster",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 88,
+    "isEstimate": true,
+    "added": null,
+    "description": "Steve Carell plays an author who visits his daughter on a college campus.",
+    "source": "top"
+  },
+  {
+    "id": "top-cape-fear-season-1-apple-tv",
+    "rank": 29,
+    "title": "Cape Fear",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 77,
+    "isEstimate": false,
+    "added": null,
+    "description": "A new series inspired by the classic thriller about a lawyer stalked by a vengeful former client.",
+    "source": "top"
+  },
+  {
+    "id": "top-people-we-meet-on-vacation-2026-netflix",
+    "rank": 30,
+    "title": "People We Meet on Vacation",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "score": 76,
+    "isEstimate": false,
+    "added": null,
+    "description": "Two best friends take a trip together every summer and start to wonder if they are more.",
+    "source": "top"
+  },
+  {
+    "id": "top-avatar-the-last-airbender-season-2-netflix",
+    "rank": 31,
+    "title": "Avatar: The Last Airbender",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Fantasy",
+      "Action",
+      "Family"
+    ],
+    "score": 68,
+    "isEstimate": true,
+    "added": null,
+    "description": "Aang keeps learning the elements on his journey to stop the Fire Lord.",
+    "source": "top"
+  },
+  {
+    "id": "top-i-will-find-you-season-1-netflix",
+    "rank": 32,
+    "title": "I Will Find You",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 61,
+    "isEstimate": true,
+    "added": null,
+    "description": "A man in prison for his son's murder sets out to prove his innocence.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-lincoln-lawyer-season-4-netflix",
+    "rank": 33,
+    "title": "The Lincoln Lawyer",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "Mickey Haller defends his clients and works his cases from the back of a Lincoln.",
+    "source": "top"
+  },
+  {
+    "id": "top-heartbreak-high-season-3-netflix",
+    "rank": 34,
+    "title": "Heartbreak High",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "Teen drama set at an Australian high school.",
+    "source": "top"
+  },
+  {
+    "id": "top-devil-may-cry-season-2-netflix",
+    "rank": 35,
+    "title": "Devil May Cry",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Action"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": null,
+    "description": "Animated demon-hunting action based on the video game.",
+    "source": "top"
+  },
+  {
+    "id": "top-legends-season-1-netflix",
+    "rank": 36,
+    "title": "Legends",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": null,
+    "description": "A crime thriller series and one of Netflix's best-reviewed shows of the year.",
+    "source": "top"
+  },
+  {
+    "id": "top-how-to-get-to-heaven-from-belfast-season-1-netflix",
+    "rank": 37,
+    "title": "How to Get to Heaven From Belfast",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "score": 95,
+    "isEstimate": false,
+    "added": null,
+    "description": "A comedy thriller from the creator of Derry Girls.",
+    "source": "top"
+  },
+  {
+    "id": "top-top-gun-maverick-2022-netflix",
+    "rank": 38,
+    "title": "Top Gun: Maverick",
+    "sub": "2022",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "score": 96,
+    "isEstimate": true,
+    "added": null,
+    "description": "Pete Mitchell trains a new generation of pilots for a near-impossible mission.",
+    "source": "top"
+  },
+  {
+    "id": "top-puss-in-boots-the-last-wish-2022-netflix",
+    "rank": 39,
+    "title": "Puss in Boots: The Last Wish",
+    "sub": "2022",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Family",
+      "Comedy"
+    ],
+    "score": 95,
+    "isEstimate": true,
+    "added": null,
+    "description": "Puss learns he is down to his last life and goes looking for a wishing star. Animated.",
+    "source": "top"
+  },
+  {
+    "id": "top-jo-nesb-s-detective-hole-season-1-netflix",
+    "rank": 40,
+    "title": "Jo Nesbø's Detective Hole",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 91,
+    "isEstimate": false,
+    "added": null,
+    "description": "Norwegian detective Harry Hole works the dark cases of Oslo.",
+    "source": "top"
+  },
+  {
+    "id": "top-running-point-season-2-netflix",
+    "rank": 41,
+    "title": "Running Point",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 90,
+    "isEstimate": false,
+    "added": null,
+    "description": "Kate Hudson runs her family's pro basketball team.",
+    "source": "top"
+  },
+  {
+    "id": "top-peaky-blinders-the-immortal-man-2026-netflix",
+    "rank": 42,
+    "title": "Peaky Blinders: The Immortal Man",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 90,
+    "isEstimate": false,
+    "added": null,
+    "description": "Tommy Shelby returns in a film continuing the Birmingham crime saga.",
+    "source": "top"
+  },
+  {
+    "id": "top-beef-season-2-netflix",
+    "rank": 43,
+    "title": "Beef",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 89,
+    "isEstimate": false,
+    "added": null,
+    "description": "A dark comedy anthology about a feud that spirals out of control.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-night-agent-season-3-netflix",
+    "rank": 44,
+    "title": "The Night Agent",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 86,
+    "isEstimate": false,
+    "added": null,
+    "description": "FBI agent Peter Sutherland is pulled into another conspiracy.",
+    "source": "top"
+  },
+  {
+    "id": "top-something-very-bad-is-going-to-happen-limited-series-netflix",
+    "rank": 45,
+    "title": "Something Very Bad Is Going to Happen",
+    "sub": "Limited series",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Horror",
+      "Comedy"
+    ],
+    "score": 86,
+    "isEstimate": false,
+    "added": null,
+    "description": "A dark horror-comedy limited series.",
+    "source": "top"
+  },
+  {
+    "id": "top-run-away-season-1-netflix",
+    "rank": 46,
+    "title": "Run Away",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense"
+    ],
+    "score": 83,
+    "isEstimate": false,
+    "added": null,
+    "description": "A father searches for his missing daughter, based on Harlan Coben's novel.",
+    "source": "top"
+  },
+  {
+    "id": "top-bridgerton-season-4-netflix",
+    "rank": 47,
+    "title": "Bridgerton",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "score": 82,
+    "isEstimate": false,
+    "added": null,
+    "description": "Benedict Bridgerton's love story takes the lead this season.",
+    "source": "top"
+  },
+  {
+    "id": "top-remarkably-bright-creatures-2026-netflix",
+    "rank": 48,
+    "title": "Remarkably Bright Creatures",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 82,
+    "isEstimate": false,
+    "added": null,
+    "description": "A widow bonds with a giant Pacific octopus at the aquarium where she works.",
+    "source": "top"
+  },
+  {
+    "id": "top-big-mistakes-season-1-netflix",
+    "rank": 49,
+    "title": "Big Mistakes",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "score": 80,
+    "isEstimate": false,
+    "added": null,
+    "description": "A crime comedy about siblings who are in way over their heads.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-rip-2026-netflix",
+    "rank": 50,
+    "title": "The Rip",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Action"
+    ],
+    "score": 78,
+    "isEstimate": false,
+    "added": null,
+    "description": "Miami cops find a huge stash of cash and start to distrust one another.",
+    "source": "top"
+  },
+  {
+    "id": "top-vladimir-season-1-netflix",
+    "rank": 51,
+    "title": "Vladimir",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 76,
+    "isEstimate": false,
+    "added": null,
+    "description": "A professor becomes fixated on a younger colleague.",
+    "source": "top"
+  },
+  {
+    "id": "top-boyfriend-on-demand-season-1-netflix",
+    "rank": 52,
+    "title": "Boyfriend on Demand",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "score": 71,
+    "isEstimate": false,
+    "added": null,
+    "description": "A romantic comedy built around a virtual boyfriend service.",
+    "source": "top"
+  },
+  {
+    "id": "top-agatha-christie-s-seven-dials-season-1-netflix",
+    "rank": 53,
+    "title": "Agatha Christie's Seven Dials",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 71,
+    "isEstimate": false,
+    "added": null,
+    "description": "A country-house mystery adapted from Agatha Christie.",
+    "source": "top"
+  },
+  {
+    "id": "top-his-hers-season-1-netflix",
+    "rank": 54,
+    "title": "His & Hers",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 70,
+    "isEstimate": false,
+    "added": null,
+    "description": "A murder investigation in a small Georgia town, told from two points of view.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-ministry-of-ungentlemanly-warfare-2024-netflix",
+    "rank": 55,
+    "title": "The Ministry of Ungentlemanly Warfare",
+    "sub": "2024",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "score": 68,
+    "isEstimate": true,
+    "added": null,
+    "description": "British saboteurs run a secret mission against German U-boats in World War II.",
+    "source": "top"
+  },
+  {
+    "id": "top-knock-at-the-cabin-2023-netflix",
+    "rank": 56,
+    "title": "Knock at the Cabin",
+    "sub": "2023",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 66,
+    "isEstimate": true,
+    "added": null,
+    "description": "Strangers force a family to make an impossible choice.",
+    "source": "top"
+  },
+  {
+    "id": "top-those-who-wish-me-dead-2021-netflix",
+    "rank": 57,
+    "title": "Those Who Wish Me Dead",
+    "sub": "2021",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 62,
+    "isEstimate": true,
+    "added": null,
+    "description": "A smokejumper protects a boy hunted by assassins as a wildfire spreads.",
+    "source": "top"
+  },
+  {
+    "id": "top-stranger-things-tales-from-85-season-1-netflix",
+    "rank": 58,
+    "title": "Stranger Things: Tales from '85",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Sci-Fi",
+      "Horror"
+    ],
+    "score": 62,
+    "isEstimate": false,
+    "added": null,
+    "description": "Animated adventures set in Hawkins in 1985.",
+    "source": "top"
+  },
+  {
+    "id": "top-man-on-fire-season-1-netflix",
+    "rank": 59,
+    "title": "Man on Fire",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 61,
+    "isEstimate": false,
+    "added": null,
+    "description": "A series based on the story of a bodyguard and the girl he protects.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-madison-season-1-paramount",
+    "rank": 60,
+    "title": "The Madison",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Drama"
+    ],
+    "score": 59,
+    "isEstimate": true,
+    "added": null,
+    "description": "A Taylor Sheridan family drama starring Michelle Pfeiffer.",
+    "source": "top"
+  },
+  {
+    "id": "top-scarpetta-season-1-prime-video",
+    "rank": 61,
+    "title": "Scarpetta",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 58,
+    "isEstimate": true,
+    "added": null,
+    "description": "Medical examiner Kay Scarpetta investigates a string of murders.",
+    "source": "top"
+  },
+  {
+    "id": "top-elle-season-1-prime-video",
+    "rank": 62,
+    "title": "Elle",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 56,
+    "isEstimate": true,
+    "added": null,
+    "description": "A prequel that follows Elle Woods in high school.",
+    "source": "top"
+  },
+  {
+    "id": "top-hokum-2026-hulu",
+    "rank": 63,
+    "title": "Hokum",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 96,
+    "isEstimate": true,
+    "added": "2026-10-11",
+    "description": "An Irish folk-horror film starring Adam Scott.",
+    "source": "top"
+  },
+  {
+    "id": "top-carrie-season-1-prime-video",
+    "rank": 64,
+    "title": "Carrie",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Horror",
+      "Drama"
+    ],
+    "score": 85,
+    "isEstimate": false,
+    "added": "2026-10-11",
+    "description": "A new series adaptation of Stephen King's story about a bullied teenager with telekinetic powers.",
+    "source": "top"
+  },
+  {
+    "id": "top-east-of-eden-limited-series-netflix",
+    "rank": 65,
+    "title": "East of Eden",
+    "sub": "Limited series",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 88,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "Steinbeck's novel becomes a limited series about two families across several decades in California.",
+    "source": "top"
+  },
+  {
+    "id": "top-below-limited-series-netflix",
+    "rank": 66,
+    "title": "Below",
+    "sub": "Limited series",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Horror"
+    ],
+    "score": 87,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A small Newfoundland town is rattled by a creature in the sea, and a few locals try to work out what it is.",
+    "source": "top"
+  },
+  {
+    "id": "top-disclosure-day-2026-peacock",
+    "rank": 67,
+    "title": "Disclosure Day",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "score": 80,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "Steven Spielberg's science-fiction thriller about contact from beyond Earth.",
+    "source": "top"
+  },
+  {
+    "id": "top-war-season-1-hbo-max",
+    "rank": 68,
+    "title": "War",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "score": 85,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A British legal drama about a divorce between a tech founder and his spouse, and the law firms on each side.",
+    "source": "top"
+  },
+  {
+    "id": "top-cupertino-season-1-paramount",
+    "rank": 69,
+    "title": "Cupertino",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A legal drama set in Silicon Valley, where lawyers take on cases for people harmed by powerful tech figures.",
+    "source": "top"
+  },
+  {
+    "id": "top-moonlight-2016-netflix",
+    "rank": 70,
+    "title": "Moonlight",
+    "sub": "2016",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 98,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A young man's life is told in three chapters as he grows up in Miami and works out who he is.",
+    "source": "top"
+  },
+  {
+    "id": "top-psycho-1960-netflix",
+    "rank": 71,
+    "title": "Psycho",
+    "sub": "1960",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A woman on the run stops at a roadside motel with a very odd owner. Hitchcock's classic.",
+    "source": "top"
+  },
+  {
+    "id": "top-call-me-by-your-name-2017-netflix",
+    "rank": 72,
+    "title": "Call Me by Your Name",
+    "sub": "2017",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "score": 95,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A summer romance between a teenager and a visiting scholar in 1980s Italy.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-bourne-ultimatum-2007-netflix",
+    "rank": 73,
+    "title": "The Bourne Ultimatum",
+    "sub": "2007",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 92,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "Jason Bourne closes in on the truth about his past while agents hunt him across several countries.",
+    "source": "top"
+  },
+  {
+    "id": "top-dallas-buyers-club-2013-netflix",
+    "rank": 74,
+    "title": "Dallas Buyers Club",
+    "sub": "2013",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 92,
+    "isEstimate": false,
+    "added": "2026-10-12",
+    "description": "A Texas man diagnosed with HIV in the 1980s starts smuggling in unapproved treatments.",
+    "source": "top"
+  },
+  {
+    "id": "top-tenzing-2026-apple-tv",
+    "rank": 75,
+    "title": "Tenzing",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Apple TV",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "score": 98,
+    "isEstimate": false,
+    "added": "2026-10-13",
+    "description": "A drama about Tenzing Norgay and Edmund Hillary's 1953 climb to the summit of Mount Everest.",
+    "source": "top"
+  },
+  {
+    "id": "top-visionquest-season-1-disney",
+    "rank": 76,
+    "title": "VisionQuest",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Disney+",
+    "genres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "score": 86,
+    "isEstimate": false,
+    "added": "2026-10-14",
+    "description": "The Vision storyline continues in a Marvel series starring Paul Bettany.",
+    "source": "top"
+  },
+  {
+    "id": "top-crystal-lake-season-1-peacock",
+    "rank": 77,
+    "title": "Crystal Lake",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Peacock",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 76,
+    "isEstimate": false,
+    "added": "2026-10-14",
+    "description": "A grieving mother is pulled back into the dark history of Crystal Lake as strange deaths begin. Set in the Friday the 13th world.",
+    "source": "top"
+  },
+  {
+    "id": "top-love-of-your-life-2026-prime-video",
+    "rank": 78,
+    "title": "Love of Your Life",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "score": 81,
+    "isEstimate": false,
+    "added": "2026-10-14",
+    "description": "A chance meeting turns into a sweeping romance, until one character's life is abruptly upended.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-bride-2026-prime-video",
+    "rank": 79,
+    "title": "The Bride!",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Horror",
+      "Romance"
+    ],
+    "score": 57,
+    "isEstimate": false,
+    "added": "2026-10-16",
+    "description": "A scientist revives a murdered woman as a companion for a legendary creature, and the aftermath goes in unexpected directions.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-death-of-robin-hood-2026-hbo-max",
+    "rank": 80,
+    "title": "The Death of Robin Hood",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "score": 65,
+    "isEstimate": false,
+    "added": "2026-10-16",
+    "description": "Hugh Jackman stars in a grim, R-rated take on the Robin Hood legend.",
+    "source": "top"
+  },
+  {
+    "id": "top-nobody-wants-this-season-3-netflix",
+    "rank": 81,
+    "title": "Nobody Wants This",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "score": 87,
+    "isEstimate": false,
+    "added": "2026-10-16",
+    "description": "A rom-com with Kristen Bell and Adam Brody about an unlikely relationship.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-diplomat-season-4-netflix",
+    "rank": 82,
+    "title": "The Diplomat",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 96,
+    "isEstimate": false,
+    "added": "2026-10-17",
+    "description": "A veteran diplomat navigates high-stakes political crises in this Netflix thriller.",
+    "source": "top"
+  },
+  {
+    "id": "top-american-horror-story-season-13-hulu",
+    "rank": 83,
+    "title": "American Horror Story",
+    "sub": "Season 13",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "score": 75,
+    "isEstimate": false,
+    "added": "2026-10-17",
+    "description": "The long-running anthology series returns with a new self-contained horror season.",
+    "source": "top"
+  },
+  {
+    "id": "top-last-breath-2025-hulu",
+    "rank": 84,
+    "title": "Last Breath",
+    "sub": "2025",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Suspense",
+      "Action"
+    ],
+    "score": 78,
+    "isEstimate": false,
+    "added": "2026-10-18",
+    "description": "Deep-sea divers attempt to rescue a teammate stranded below, based on a true story.",
+    "source": "top"
+  },
+  {
+    "id": "top-lord-of-the-flies-limited-series-netflix",
+    "rank": 85,
+    "title": "Lord of the Flies",
+    "sub": "Limited series",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 92,
+    "isEstimate": false,
+    "added": "2026-10-20",
+    "description": "Schoolboys stranded on a remote island slide from cooperation into chaos in this adaptation of the classic novel.",
+    "source": "top"
+  },
+  {
+    "id": "top-heat-1995-netflix",
+    "rank": 86,
+    "title": "Heat",
+    "sub": "1995",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 84,
+    "isEstimate": false,
+    "added": "2026-10-22",
+    "description": "A veteran thief and an obsessive detective circle each other across Los Angeles ahead of a major heist.",
+    "source": "top"
+  },
+  {
+    "id": "top-gladiator-2000-netflix",
+    "rank": 87,
+    "title": "Gladiator",
+    "sub": "2000",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "score": 80,
+    "isEstimate": false,
+    "added": "2026-10-22",
+    "description": "A betrayed Roman general becomes a gladiator and fights his way toward revenge in the arena.",
+    "source": "top"
+  },
+  {
+    "id": "top-phony-season-1-hulu",
+    "rank": 88,
+    "title": "Phony",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "score": 93,
+    "isEstimate": false,
+    "added": "2026-10-25",
+    "description": "A comedy-mystery in which a woman's identity is called into question.",
+    "source": "top"
+  },
+  {
+    "id": "top-cyberpunk-edgerunners-2-season-2-netflix",
+    "rank": 89,
+    "title": "Cyberpunk: Edgerunners 2",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Sci-Fi",
+      "Action"
+    ],
+    "score": 80,
+    "isEstimate": false,
+    "added": "2026-10-25",
+    "description": "The animated sci-fi series returns to Night City with more street-level danger and cybernetic chaos.",
+    "source": "top"
+  },
+  {
+    "id": "top-lupin-part-4-netflix",
+    "rank": 90,
+    "title": "Lupin",
+    "sub": "Part 4",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-10-25",
+    "description": "The French gentleman-thief series continues with a new part of heists and double-crosses.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-terminal-list-season-2-prime-video",
+    "rank": 91,
+    "title": "The Terminal List",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "score": 73,
+    "isEstimate": false,
+    "added": "2026-10-25",
+    "description": "A former Navy SEAL pursues a conspiracy in the show's second season.",
+    "source": "top"
+  },
+  {
+    "id": "top-avatar-seven-havens-season-1-paramount",
+    "rank": 92,
+    "title": "Avatar: Seven Havens",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Action"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-10-27",
+    "description": "An animated sequel set long after Korra, following a young Earthbender who discovers she is the next Avatar.",
+    "source": "top"
+  },
+  {
+    "id": "top-small-prophets-season-1-apple-tv",
+    "rank": 93,
+    "title": "Small Prophets",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy",
+      "Fantasy"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-10-27",
+    "description": "A British comedy about a man who tries a family recipe for spirits said to predict the future, hoping to learn if his missing partner will return.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-invite-2026-hbo-max",
+    "rank": 94,
+    "title": "The Invite",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 96,
+    "isEstimate": false,
+    "added": "2026-10-27",
+    "description": "A dinner with upstairs neighbors turns revealing in this A24 comedy directed by and starring Olivia Wilde.",
+    "source": "top"
+  },
+  {
+    "id": "top-abbott-elementary-season-6-disney",
+    "rank": 95,
+    "title": "Abbott Elementary",
+    "sub": "Season 6",
+    "type": "show",
+    "platform": "Disney+",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 99,
+    "isEstimate": false,
+    "added": "2026-10-30",
+    "description": "A mockumentary sitcom about hopeful teachers at an underfunded Philadelphia public school.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-lowdown-season-2-hulu",
+    "rank": 96,
+    "title": "The Lowdown",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "score": 99,
+    "isEstimate": false,
+    "added": "2026-10-30",
+    "description": "A Tulsa bookseller and self-styled investigative journalist digs into local corruption in this crime dramedy.",
+    "source": "top"
+  },
+  {
+    "id": "top-where-s-wanda-season-2-apple-tv",
+    "rank": 97,
+    "title": "Where's Wanda?",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-10-30",
+    "description": "A comedy series on Apple TV, now in its second season.",
+    "source": "top"
+  },
+  {
+    "id": "top-annie-hall-1977-prime-video",
+    "rank": 98,
+    "title": "Annie Hall",
+    "sub": "1977",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Comedy",
+      "Romance"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": "2026-11-04",
+    "description": "Woody Allen's neurotic comic navigates love and heartbreak in a landmark romantic comedy.",
+    "source": "top"
+  },
+  {
+    "id": "top-good-will-hunting-1997-prime-video",
+    "rank": 99,
+    "title": "Good Will Hunting",
+    "sub": "1997",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": "2026-11-04",
+    "description": "A janitorial worker with a gift for math is pushed by a therapist to confront his past.",
+    "source": "top"
+  },
+  {
+    "id": "top-hang-em-high-1968-prime-video",
+    "rank": 100,
+    "title": "Hang 'Em High",
+    "sub": "1968",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Action",
+      "Drama"
+    ],
+    "score": 93,
+    "isEstimate": false,
+    "added": "2026-11-04",
+    "description": "A wrongly hanged man survives and seeks justice as a lawman in the Old West.",
+    "source": "top"
+  },
+  {
+    "id": "top-wargames-1983-prime-video",
+    "rank": 101,
+    "title": "WarGames",
+    "sub": "1983",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "score": 93,
+    "isEstimate": false,
+    "added": "2026-11-04",
+    "description": "A teenage hacker nearly triggers a nuclear standoff by playing what he thinks is a game.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-wolf-of-snow-hollow-2020-prime-video",
+    "rank": 102,
+    "title": "The Wolf of Snow Hollow",
+    "sub": "2020",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Horror",
+      "Comedy"
+    ],
+    "score": 90,
+    "isEstimate": false,
+    "added": "2026-11-04",
+    "description": "A small-town cop with a short fuse hunts a killer during a series of snowbound murders.",
+    "source": "top"
+  },
+  {
+    "id": "top-black-doves-season-2-netflix",
+    "rank": 103,
+    "title": "Black Doves",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Action"
+    ],
+    "score": 94,
+    "isEstimate": false,
+    "added": "2026-11-07",
+    "description": "A spy thriller about a woman with a secret identity who is protected by an assassin, now back for a second season.",
+    "source": "top"
+  },
+  {
+    "id": "top-north-of-north-season-2-netflix",
+    "rank": 104,
+    "title": "North of North",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-11-07",
+    "description": "A comedy set in a small Arctic town, following a young Inuk woman rebuilding her life after leaving her marriage.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-uprising-2026-peacock",
+    "rank": 105,
+    "title": "The Uprising",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "score": 57,
+    "isEstimate": false,
+    "added": "2026-11-07",
+    "description": "A historical drama about a people's army rising against King Richard II in the 1381 revolt.",
+    "source": "top"
+  },
+  {
+    "id": "top-rivals-season-2-hulu",
+    "rank": 106,
+    "title": "Rivals",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 97,
+    "isEstimate": false,
+    "added": "2026-11-08",
+    "description": "A glossy British period dramedy about rival media and society figures clashing in the English countryside, now in its second season.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-gilded-age-season-4-hbo-max",
+    "rank": 107,
+    "title": "The Gilded Age",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "score": 90,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A period drama about rival old-money and new-money families in 1880s New York, now in its fourth season.",
+    "source": "top"
+  },
+  {
+    "id": "top-stick-season-2-apple-tv",
+    "rank": 108,
+    "title": "Stick",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A comedy-drama set in the golf world, back for a second season.",
+    "source": "top"
+  },
+  {
+    "id": "top-it-gets-worse-season-1-paramount",
+    "rank": 109,
+    "title": "It Gets Worse",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 92,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A British comedy series that premiered on Paramount+ this month.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-greatest-limited-series-prime-video",
+    "rank": 110,
+    "title": "The Greatest",
+    "sub": "Limited series",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "score": 88,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A limited series about the life of boxer Muhammad Ali.",
+    "source": "top"
+  },
+  {
+    "id": "top-bass-x-machina-season-1-netflix",
+    "rank": 111,
+    "title": "Bass X Machina",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Animation"
+    ],
+    "score": 100,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A new animated Netflix series; details are still limited.",
+    "source": "top"
+  },
+  {
+    "id": "top-reminders-of-him-2026-netflix",
+    "rank": 112,
+    "title": "Reminders of Him",
+    "sub": "2026",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "score": 56,
+    "isEstimate": false,
+    "added": "2026-11-10",
+    "description": "A woman returns to her hometown after prison hoping to reconnect with her daughter, adapted from a bestselling novel.",
+    "source": "top"
+  },
+  {
+    "id": "top-looper-2012-netflix",
+    "rank": 113,
+    "title": "Looper",
+    "sub": "2012",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "score": 93,
+    "isEstimate": false,
+    "added": "2026-11-18",
+    "description": "A hit man who kills targets sent back from the future is forced to face his own older self.",
+    "source": "top"
+  },
+  {
+    "id": "top-the-best-christmas-pageant-ever-2024-netflix",
+    "rank": 114,
+    "title": "The Best Christmas Pageant Ever",
+    "sub": "2024",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "score": 92,
+    "isEstimate": false,
+    "added": "2026-11-18",
+    "description": "A family of rowdy siblings takes over a small town's church Christmas pageant.",
+    "source": "top"
+  },
+  {
+    "id": "top-stand-by-me-1986-netflix",
+    "rank": 115,
+    "title": "Stand by Me",
+    "sub": "1986",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "score": 89,
+    "isEstimate": false,
+    "added": "2026-11-18",
+    "description": "Four boys set out on a summer hike to find a missing body and grow up along the way.",
+    "source": "top"
+  },
+  {
+    "id": "top-bridesmaids-2011-netflix",
+    "rank": 116,
+    "title": "Bridesmaids",
+    "sub": "2011",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "score": 89,
+    "isEstimate": false,
+    "added": "2026-11-18",
+    "description": "A maid of honor's life unravels as she competes with a rival in planning her best friend's wedding.",
+    "source": "top"
+  }
+];
+
+export const NEW_TITLES: CatalogItem[] = [
+  {
+    "id": "new-0-the-gilded-age-season-4-hbo-max",
+    "title": "The Gilded Age",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-01",
+    "added": "2026-11-01",
+    "score": 90,
+    "description": "The period drama about New York high society returns for a fourth season.",
+    "source": "new"
+  },
+  {
+    "id": "new-1-bass-x-machina-season-1-netflix",
+    "title": "Bass X Machina",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Animation"
+    ],
+    "releaseDate": "2026-11-03",
+    "added": "2026-11-01",
+    "score": 100,
+    "description": "A new Netflix series; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-2-all-s-fair-season-2-hulu",
+    "title": "All's Fair",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-04",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "Ryan Murphy's drama about high-powered female divorce attorneys returns.",
+    "source": "new"
+  },
+  {
+    "id": "new-3-the-greatest-prime-video",
+    "title": "The Greatest",
+    "sub": "",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-04",
+    "added": "2026-11-01",
+    "score": 88,
+    "description": "A limited series about boxer Muhammad Ali.",
+    "source": "new"
+  },
+  {
+    "id": "new-4-stick-season-2-apple-tv",
+    "title": "Stick",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-04",
+    "added": "2026-11-01",
+    "score": 100,
+    "description": "The golf comedy-drama returns for a second season.",
+    "source": "new"
+  },
+  {
+    "id": "new-5-black-doves-season-2-netflix",
+    "title": "Black Doves",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Action"
+    ],
+    "releaseDate": "2026-11-05",
+    "added": "2026-11-01",
+    "score": 92,
+    "description": "The spy thriller returns for a second season.",
+    "source": "new"
+  },
+  {
+    "id": "new-6-north-of-north-season-2-netflix",
+    "title": "North of North",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-05",
+    "added": "2026-11-01",
+    "score": 100,
+    "description": "The Inuit-set comedy returns.",
+    "source": "new"
+  },
+  {
+    "id": "new-7-it-gets-worse-season-1-paramount",
+    "title": "It Gets Worse",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-06",
+    "added": "2026-11-01",
+    "score": 92,
+    "description": "A new British comedy series.",
+    "source": "new"
+  },
+  {
+    "id": "new-8-the-uprising-peacock",
+    "title": "The Uprising",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-06",
+    "added": "2026-11-01",
+    "score": 57,
+    "description": "A historical drama starring Andrew Garfield.",
+    "source": "new"
+  },
+  {
+    "id": "new-9-possible-love-netflix",
+    "title": "Possible Love",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-06",
+    "added": "2026-11-03",
+    "score": null,
+    "description": "A Korean romantic drama film arriving on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-10-awkwafina-the-unlikely-cook-apple-tv",
+    "title": "Awkwafina: The Unlikely Cook",
+    "sub": "",
+    "type": "show",
+    "platform": "Apple TV",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-06",
+    "added": "2026-11-07",
+    "score": null,
+    "description": "A new Apple TV series featuring Awkwafina; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-11-city-of-god-the-fight-rages-on-season-2-hbo-max",
+    "title": "City of God: The Fight Rages On",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "releaseDate": "2026-11-08",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "The Brazilian series that follows the 2002 film returns, set among police, gangs and militias in a favela.",
+    "source": "new"
+  },
+  {
+    "id": "new-12-misty-green-netflix",
+    "title": "Misty Green",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-09",
+    "added": "2026-11-10",
+    "score": null,
+    "description": "An A24 Hollywood dramedy written, directed by and starring Chris Rock.",
+    "source": "new"
+  },
+  {
+    "id": "new-13-reminders-of-him-netflix",
+    "title": "Reminders of Him",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-10",
+    "added": "2026-11-03",
+    "score": 56,
+    "description": "A romantic drama adapted from the bestselling novel, arriving on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-14-the-body-season-1-netflix",
+    "title": "The Body",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-11",
+    "added": "2026-11-10",
+    "score": null,
+    "description": "A teen psychodrama about a dance team's ritual and the visions that follow.",
+    "source": "new"
+  },
+  {
+    "id": "new-15-the-empress-season-3-netflix",
+    "title": "The Empress",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-07",
+    "score": null,
+    "description": "The period drama returns for a third season.",
+    "source": "new"
+  },
+  {
+    "id": "new-16-the-devil-s-plan-season-3-netflix",
+    "title": "The Devil's Plan",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-10",
+    "added": "2026-11-08",
+    "score": null,
+    "description": "The Korean strategy-game competition series returns for a third season.",
+    "source": "new"
+  },
+  {
+    "id": "new-17-janelle-james-how-romantic-netflix",
+    "title": "Janelle James: How Romantic",
+    "sub": "",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-10",
+    "added": "2026-11-08",
+    "score": null,
+    "description": "A stand-up comedy special from Janelle James.",
+    "source": "new"
+  },
+  {
+    "id": "new-18-the-lord-of-the-rings-the-rings-of-power-season-3-prime-video",
+    "title": "The Lord of the Rings: The Rings of Power",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Fantasy",
+      "Action"
+    ],
+    "releaseDate": "2026-11-11",
+    "added": "2026-11-01",
+    "score": 79,
+    "description": "Forces of good unite against Sauron as he forges the One Ring.",
+    "source": "new"
+  },
+  {
+    "id": "new-19-rivals-season-2-part-2-hulu",
+    "title": "Rivals",
+    "sub": "Season 2 (part 2)",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-11",
+    "added": "2026-11-01",
+    "score": 97,
+    "description": "The second half of the British period dramedy's new season.",
+    "source": "new"
+  },
+  {
+    "id": "new-20-allen-netflix",
+    "title": "Allen",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Sci-Fi",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-10",
+    "score": null,
+    "description": "A sci-fi comedy about a man reuniting with his childhood alien friend.",
+    "source": "new"
+  },
+  {
+    "id": "new-21-the-good-daughter-peacock",
+    "title": "The Good Daughter",
+    "sub": "",
+    "type": "show",
+    "platform": "Peacock",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A limited thriller about estranged sisters pulled into a crime in their hometown, based on a Karin Slaughter novel.",
+    "source": "new"
+  },
+  {
+    "id": "new-22-the-secret-lives-of-mormon-wives-orange-county-season-1-hulu",
+    "title": "The Secret Lives of Mormon Wives: Orange County",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "The first spin-off of the reality franchise.",
+    "source": "new"
+  },
+  {
+    "id": "new-23-the-end-of-oak-street-hbo-max",
+    "title": "The End of Oak Street",
+    "sub": "",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-13",
+    "added": "2026-11-10",
+    "score": null,
+    "description": "After a cosmic event moves their street somewhere unknown, a family must stick together to survive.",
+    "source": "new"
+  },
+  {
+    "id": "new-24-a-merry-little-ex-mas-netflix",
+    "title": "A Merry Little Ex-Mas",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-12",
+    "score": null,
+    "description": "A holiday rom-com about a separated couple spending one last holiday together.",
+    "source": "new"
+  },
+  {
+    "id": "new-25-playdate-prime-video",
+    "title": "Playdate",
+    "sub": "",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-12",
+    "score": null,
+    "description": "An action-comedy about a stay-at-home dad who ends up the unlikely hero.",
+    "source": "new"
+  },
+  {
+    "id": "new-26-nouvelle-vague-netflix",
+    "title": "Nouvelle Vague",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-12",
+    "score": 89,
+    "description": "Richard Linklater's dramatization of the making of a French New Wave classic.",
+    "source": "new"
+  },
+  {
+    "id": "new-27-a-very-jonas-christmas-movie-disney",
+    "title": "A Very Jonas Christmas Movie",
+    "sub": "",
+    "type": "movie",
+    "platform": "Disney+",
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-12",
+    "score": null,
+    "description": "The Jonas Brothers star in a festive travel comedy.",
+    "source": "new"
+  },
+  {
+    "id": "new-28-avedon-netflix",
+    "title": "Avedon",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-11",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "A new Netflix film; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-29-paw-patrol-the-dino-movie-paramount",
+    "title": "PAW Patrol: The Dino Movie",
+    "sub": "",
+    "type": "movie",
+    "platform": "Paramount+",
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "The rescue pups head out on a new animated adventure, now streaming.",
+    "source": "new"
+  },
+  {
+    "id": "new-30-the-hunger-games-film-series-peacock",
+    "title": "The Hunger Games Film Series",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "All five films in the dystopian franchise arrive on Peacock.",
+    "source": "new"
+  },
+  {
+    "id": "new-31-paddington-in-peru-hulu",
+    "title": "Paddington in Peru",
+    "sub": "",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-15",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "The marmalade-loving bear travels to Peru in his third film adventure.",
+    "source": "new"
+  },
+  {
+    "id": "new-32-they-will-kill-you-prime-video",
+    "title": "They Will Kill You",
+    "sub": "",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Horror",
+      "Action"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "A horror-action film arriving on Prime Video; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-33-the-magic-faraway-tree-hbo-max",
+    "title": "The Magic Faraway Tree",
+    "sub": "",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Fantasy",
+      "Family"
+    ],
+    "releaseDate": "2026-11-27",
+    "added": "2026-11-13",
+    "score": null,
+    "description": "A family fantasy adventure based on the classic children's books.",
+    "source": "new"
+  },
+  {
+    "id": "new-34-12-12-12-apple-tv",
+    "title": "12 12 12",
+    "sub": "",
+    "type": "movie",
+    "platform": "Apple TV",
+    "genres": [
+      "Suspense",
+      "Action"
+    ],
+    "releaseDate": "2026-11-13",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A heist thriller about a Zurich bank robbery, with a disgraced FBI agent in pursuit.",
+    "source": "new"
+  },
+  {
+    "id": "new-35-being-heumann-apple-tv",
+    "title": "Being Heumann",
+    "sub": "",
+    "type": "movie",
+    "platform": "Apple TV",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-13",
+    "added": "2026-11-11",
+    "score": 86,
+    "description": "A documentary about disability-rights activist Judith Heumann.",
+    "source": "new"
+  },
+  {
+    "id": "new-36-clangold-season-1-hbo-max",
+    "title": "Clangold",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-13",
+    "added": "2026-11-11",
+    "score": null,
+    "description": "A new HBO Max series; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-37-heartland-netflix",
+    "title": "Heartland",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-13",
+    "added": "2026-11-01",
+    "score": 59,
+    "description": "A mystery thriller about a faded country star searching Nashville for her missing niece.",
+    "source": "new"
+  },
+  {
+    "id": "new-38-the-chosen-season-6-prime-video",
+    "title": "The Chosen",
+    "sub": "Season 6",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-15",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "The faith-based drama continues with its sixth season.",
+    "source": "new"
+  },
+  {
+    "id": "new-39-cunk-on-cinema-netflix",
+    "title": "Cunk on Cinema",
+    "sub": "",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-15",
+    "added": "2026-11-07",
+    "score": null,
+    "description": "A comedy series arriving on Netflix; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-40-obsession-netflix",
+    "title": "Obsession",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-17",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "Curry Barker's box-office hit arrives after its theatrical and Peacock run.",
+    "source": "new"
+  },
+  {
+    "id": "new-41-madden-prime-video",
+    "title": "Madden",
+    "sub": "",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-18",
+    "added": "2026-11-01",
+    "score": 18,
+    "description": "A biopic of football coach and broadcaster John Madden, played by Nicolas Cage.",
+    "source": "new"
+  },
+  {
+    "id": "new-42-the-altruists-netflix",
+    "title": "The Altruists",
+    "sub": "",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Romance"
+    ],
+    "releaseDate": "2026-11-19",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A limited series dramatizing the rise and collapse of a crypto exchange through its founders' relationship.",
+    "source": "new"
+  },
+  {
+    "id": "new-43-percy-jackson-and-the-olympians-season-3-disney",
+    "title": "Percy Jackson and the Olympians",
+    "sub": "Season 3",
+    "type": "show",
+    "platform": "Disney+",
+    "genres": [
+      "Fantasy",
+      "Family",
+      "Action"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "The mythology adventure series returns for its third season.",
+    "source": "new"
+  },
+  {
+    "id": "new-44-tony-hbo-max",
+    "title": "Tony",
+    "sub": "",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A24's Anthony Bourdain biopic makes its streaming debut.",
+    "source": "new"
+  },
+  {
+    "id": "new-45-mobland-season-2-paramount",
+    "title": "MobLand",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-11",
+    "score": null,
+    "description": "The crime drama wraps up its run with its series finale.",
+    "source": "new"
+  },
+  {
+    "id": "new-46-yellowjackets-season-4-paramount",
+    "title": "Yellowjackets",
+    "sub": "Season 4",
+    "type": "show",
+    "platform": "Paramount+",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-05",
+    "score": null,
+    "description": "The final season of the survival drama, as the survivors race to bury their secrets before rescue arrives.",
+    "source": "new"
+  },
+  {
+    "id": "new-47-dig-season-1-peacock",
+    "title": "Dig",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Peacock",
+    "genres": [
+      "Comedy",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A comedy from Amy Poehler and Michael Schur about archaeologists who uncover an international conspiracy in Greece.",
+    "source": "new"
+  },
+  {
+    "id": "new-48-the-trials-of-karen-read-netflix",
+    "title": "The Trials of Karen Read",
+    "sub": "",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-07",
+    "score": null,
+    "description": "A documentary series about the Karen Read case.",
+    "source": "new"
+  },
+  {
+    "id": "new-49-blade-runner-2099-season-1-prime-video",
+    "title": "Blade Runner 2099",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Sci-Fi",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-25",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "A limited series set 50 years after Blade Runner 2049, with Michelle Yeoh and Hunter Schafer.",
+    "source": "new"
+  },
+  {
+    "id": "new-50-mickey-s-home-alone-disney",
+    "title": "Mickey's Home Alone",
+    "sub": "",
+    "type": "movie",
+    "platform": "Disney+",
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "releaseDate": "2026-11-27",
+    "added": "2026-11-11",
+    "score": null,
+    "description": "A holiday premiere starring Mickey Mouse on Disney+.",
+    "source": "new"
+  },
+  {
+    "id": "new-51-the-mosquito-bowl-netflix",
+    "title": "The Mosquito Bowl",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Action"
+    ],
+    "releaseDate": "2026-11-25",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "College football stars enlist in the Marines during World War II.",
+    "source": "new"
+  },
+  {
+    "id": "new-52-the-hunting-wives-season-2-netflix",
+    "title": "The Hunting Wives",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-26",
+    "added": "2026-11-01",
+    "score": null,
+    "description": "The East Texas socialite crime drama returns.",
+    "source": "new"
+  },
+  {
+    "id": "new-53-the-boy-who-stole-billions-prime-video",
+    "title": "The Boy Who Stole Billions?",
+    "sub": "",
+    "type": "show",
+    "platform": "Prime Video",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-30",
+    "added": "2026-11-07",
+    "score": null,
+    "description": "A limited series arriving on Prime Video; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-54-the-super-mario-galaxy-movie-netflix",
+    "title": "The Super Mario Galaxy Movie",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "releaseDate": "2026-11-30",
+    "added": "2026-11-03",
+    "score": null,
+    "description": "The animated Mario sequel makes its Netflix streaming debut.",
+    "source": "new"
+  },
+  {
+    "id": "new-55-the-institute-season-2-mgm",
+    "title": "The Institute",
+    "sub": "Season 2",
+    "type": "show",
+    "platform": "MGM+",
+    "genres": [
+      "Sci-Fi",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-08",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "Survivors of a facility for psychic children try to stop its villainous director from rebuilding it.",
+    "source": "new"
+  },
+  {
+    "id": "new-56-you-won-t-be-alone-peacock",
+    "title": "You Won't Be Alone",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Horror",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-16",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "A film arriving as a Peacock exclusive; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-57-run-the-world-seasons-1-2-netflix",
+    "title": "Run the World",
+    "sub": "Seasons 1-2",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-17",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "Both seasons of the series arrive on Netflix; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-58-vienna-game-hulu",
+    "title": "Vienna Game",
+    "sub": "",
+    "type": "show",
+    "platform": "Hulu",
+    "genres": [
+      "Suspense",
+      "Drama"
+    ],
+    "releaseDate": "2026-11-18",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "A Hulu Original premiere; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-59-the-roses-hbo-max",
+    "title": "The Roses",
+    "sub": "",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "The 2025 dark comedy about a marriage turning into a feud arrives on HBO Max.",
+    "source": "new"
+  },
+  {
+    "id": "new-60-clashing-through-the-snow-prime-video",
+    "title": "Clashing Through the Snow",
+    "sub": "",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "A holiday film arriving on Prime Video; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-61-dragons-rescue-riders-peacock",
+    "title": "Dragons: Rescue Riders",
+    "sub": "",
+    "type": "show",
+    "platform": "Peacock",
+    "genres": [
+      "Animation",
+      "Family"
+    ],
+    "releaseDate": "2026-11-24",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "A new animated adventure series for kids, a Peacock exclusive.",
+    "source": "new"
+  },
+  {
+    "id": "new-62-way-of-the-warrior-kid-apple-tv",
+    "title": "Way of the Warrior Kid",
+    "sub": "",
+    "type": "movie",
+    "platform": "Apple TV",
+    "genres": [
+      "Drama",
+      "Family"
+    ],
+    "releaseDate": "2026-11-25",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "A decorated soldier trains his bullied 11-year-old nephew, based on a bestselling book.",
+    "source": "new"
+  },
+  {
+    "id": "new-63-the-lord-of-the-rings-the-war-of-the-rohirrim-prime-video",
+    "title": "The Lord of the Rings: The War of the Rohirrim",
+    "sub": "",
+    "type": "movie",
+    "platform": "Prime Video",
+    "genres": [
+      "Animation",
+      "Fantasy",
+      "Action"
+    ],
+    "releaseDate": "2026-11-28",
+    "added": "2026-11-15",
+    "score": null,
+    "description": "The animated Middle-earth film set in the history of Rohan arrives on Prime Video.",
+    "source": "new"
+  },
+  {
+    "id": "new-64-gift-season-1-hbo-max",
+    "title": "Gift",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "A new HBO Max series; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-65-smile-netflix",
+    "title": "Smile",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Horror"
+    ],
+    "releaseDate": "2026-11-15",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "The psychological horror film arrives on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-66-insidious-netflix",
+    "title": "Insidious",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Horror"
+    ],
+    "releaseDate": "2026-11-15",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "The haunted-house horror film arrives on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-67-rbg-netflix",
+    "title": "RBG",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-17",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "A documentary about Supreme Court Justice Ruth Bader Ginsburg, arriving on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-68-gentle-monster-netflix",
+    "title": "Gentle Monster",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-18",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "A new Netflix film; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-69-guarding-stars-netflix",
+    "title": "Guarding Stars",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Romance",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-18",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "A romantic comedy in which a bodyguard and an action star pretend to date.",
+    "source": "new"
+  },
+  {
+    "id": "new-70-steps-netflix",
+    "title": "Steps",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Animation",
+      "Family",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "An animated fractured fairy tale that reframes Cinderella's stepsisters.",
+    "source": "new"
+  },
+  {
+    "id": "new-71-alien-romulus-peacock",
+    "title": "Alien: Romulus",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Horror",
+      "Sci-Fi"
+    ],
+    "releaseDate": "2026-11-21",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "The sci-fi horror entry in the Alien franchise arrives on Peacock.",
+    "source": "new"
+  },
+  {
+    "id": "new-72-the-great-british-baking-show-holidays-season-9-netflix",
+    "title": "The Great British Baking Show: Holidays",
+    "sub": "Season 9",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "The festive edition of the baking competition returns.",
+    "source": "new"
+  },
+  {
+    "id": "new-73-m3gan-2-0-peacock",
+    "title": "M3GAN 2.0",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Horror",
+      "Sci-Fi"
+    ],
+    "releaseDate": "2026-11-26",
+    "added": "2026-11-14",
+    "score": null,
+    "description": "The killer-doll sequel arrives on Peacock.",
+    "source": "new"
+  },
+  {
+    "id": "new-74-how-the-tudors-lost-their-heads-season-1-disney",
+    "title": "How The Tudors Lost Their Heads",
+    "sub": "Season 1",
+    "type": "show",
+    "platform": "Disney+",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-17",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "A history series premiere arriving with all episodes at once; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-75-super-troopers-3-hulu",
+    "title": "Super Troopers 3",
+    "sub": "",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-04",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "The Vermont state troopers return in a comedy sequel built around Farva's wedding.",
+    "source": "new"
+  },
+  {
+    "id": "new-76-carolina-caroline-hulu",
+    "title": "Carolina Caroline",
+    "sub": "",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Romance",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-06",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "A throwback romantic crime story about two small-time grifters whose schemes keep growing.",
+    "source": "new"
+  },
+  {
+    "id": "new-77-gail-daughtry-and-the-celebrity-sex-pass-netflix",
+    "title": "Gail Daughtry and the Celebrity Sex Pass",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-07",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "An absurdist comedy quest across Los Angeles, packed with cameos.",
+    "source": "new"
+  },
+  {
+    "id": "new-78-freakier-friday-disney",
+    "title": "Freakier Friday",
+    "sub": "",
+    "type": "movie",
+    "platform": "Disney+",
+    "genres": [
+      "Comedy",
+      "Family"
+    ],
+    "releaseDate": "2026-11-12",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "The body-swap family comedy sequel with Lindsay Lohan and Jamie Lee Curtis.",
+    "source": "new"
+  },
+  {
+    "id": "new-79-eddington-hbo-max",
+    "title": "Eddington",
+    "sub": "",
+    "type": "movie",
+    "platform": "HBO Max",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "A sheriff and a mayor feud during the COVID-19 lockdown, and the conflict turns dark.",
+    "source": "new"
+  },
+  {
+    "id": "new-80-nobody-2-peacock",
+    "title": "Nobody 2",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Action",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "An assassin's family vacation gets interrupted by a corrupt sheriff working for a crime boss.",
+    "source": "new"
+  },
+  {
+    "id": "new-81-come-see-me-in-the-good-light-apple-tv",
+    "title": "Come See Me in the Good Light",
+    "sub": "",
+    "type": "movie",
+    "platform": "Apple TV",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-14",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "A documentary about poets Andrea Gibson and Megan Falley as Gibson faces terminal cancer.",
+    "source": "new"
+  },
+  {
+    "id": "new-82-never-let-go-peacock",
+    "title": "Never Let Go",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Horror",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-19",
+    "added": "2026-11-17",
+    "score": null,
+    "description": "A film arriving on Peacock; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-83-looper-netflix",
+    "title": "Looper",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Sci-Fi",
+      "Action"
+    ],
+    "releaseDate": "2026-11-01",
+    "added": "2026-11-18",
+    "score": 93,
+    "description": "A time-travel thriller about a hired killer who meets his future self.",
+    "source": "new"
+  },
+  {
+    "id": "new-84-bridesmaids-netflix",
+    "title": "Bridesmaids",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-01",
+    "added": "2026-11-18",
+    "score": 89,
+    "description": "The wedding-party comedy about a maid of honor and her rival arrives on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-85-stand-by-me-netflix",
+    "title": "Stand by Me",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-01",
+    "added": "2026-11-18",
+    "score": 89,
+    "description": "The coming-of-age classic about four friends on a hike arrives on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-86-will-trent-seasons-1-4-netflix",
+    "title": "Will Trent",
+    "sub": "Seasons 1-4",
+    "type": "show",
+    "platform": "Netflix",
+    "genres": [
+      "Drama",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-03",
+    "added": "2026-11-18",
+    "score": null,
+    "description": "The first four seasons of the crime drama about an investigator arrive on Netflix.",
+    "source": "new"
+  },
+  {
+    "id": "new-87-a-dog-s-perfect-christmas-netflix",
+    "title": "A Dog's Perfect Christmas",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Family",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-04",
+    "added": "2026-11-18",
+    "score": null,
+    "description": "A holiday film arriving on Netflix; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-88-on-behalf-of-my-son-netflix",
+    "title": "On Behalf of My Son",
+    "sub": "",
+    "type": "movie",
+    "platform": "Netflix",
+    "genres": [
+      "Drama"
+    ],
+    "releaseDate": "2026-11-20",
+    "added": "2026-11-19",
+    "score": null,
+    "description": "A new Netflix film; details are limited so far.",
+    "source": "new"
+  },
+  {
+    "id": "new-89-ambulance-peacock",
+    "title": "Ambulance",
+    "sub": "",
+    "type": "movie",
+    "platform": "Peacock",
+    "genres": [
+      "Action",
+      "Suspense"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-19",
+    "score": null,
+    "description": "The 2022 action thriller about a heist gone wrong and a hijacked ambulance arrives as a Peacock exclusive.",
+    "source": "new"
+  },
+  {
+    "id": "new-90-mickey-17-hulu",
+    "title": "Mickey 17",
+    "sub": "",
+    "type": "movie",
+    "platform": "Hulu",
+    "genres": [
+      "Sci-Fi",
+      "Comedy"
+    ],
+    "releaseDate": "2026-11-23",
+    "added": "2026-11-18",
+    "score": null,
+    "description": "The 2025 sci-fi comedy about an expendable worker who is repeatedly cloned arrives on Hulu.",
+    "source": "new"
+  }
+];
