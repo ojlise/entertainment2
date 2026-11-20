@@ -27,10 +27,22 @@ interface NewReleasesSectionProps {
   onResetFilters: () => void;
 }
 
-const NOV_2026_DAYS = Array.from({ length: 30 }, (_, i) => {
-  const day = i + 1;
-  return `2026-11-${String(day).padStart(2, "0")}`;
-});
+function getCurrentMonthMeta() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const monthIndex = now.getMonth();
+  const daysInMonth = new Date(year, monthIndex + 1, 0).getDate();
+  const firstWeekday = new Date(year, monthIndex, 1).getDay();
+  const monthLabel = now.toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
+  const monthPrefix = `${year}-${String(monthIndex + 1).padStart(2, "0")}`;
+  const days = Array.from({ length: daysInMonth }, (_, i) => {
+    return `${monthPrefix}-${String(i + 1).padStart(2, "0")}`;
+  });
+  return { monthLabel, firstWeekday, days };
+}
 
 export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
   items,
@@ -42,6 +54,7 @@ export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
 }) => {
   const [viewMode, setViewMode] = useState<"timeline" | "calendar">("timeline");
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
+  const monthMeta = useMemo(() => getCurrentMonthMeta(), []);
 
   const filteredByDay = useMemo(() => {
     if (!selectedDay) return items;
@@ -209,7 +222,7 @@ export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
       <div className="flex flex-wrap items-end justify-between gap-4 pb-4 border-b border-neutral-200 dark:border-neutral-800">
         <div>
           <h2 className="font-display font-bold text-2xl sm:text-3xl tracking-tight text-[#14161C] dark:text-[#ECEEF4]">
-            New This Month — November 2026
+            New This Month — {monthMeta.monthLabel}
           </h2>
           <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
             Premieres and catalog arrivals across major US services. Switch to
@@ -260,12 +273,12 @@ export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
         </div>
       </div>
 
-      {/* Interactive November 2026 Calendar Grid */}
+      {/* Interactive Current Month Calendar Grid */}
       {viewMode === "calendar" && (
         <div className="mt-6 rounded-xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-[#13161F] p-4 sm:p-5">
           <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
             <h3 className="font-display font-bold text-base text-[#14161C] dark:text-white">
-              November 2026 Release Schedule
+              {monthMeta.monthLabel} Release Schedule
             </h3>
             {selectedDay && (
               <button
@@ -273,12 +286,12 @@ export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
                 onClick={() => setSelectedDay(null)}
                 className="text-xs font-semibold text-[#C81E66] dark:text-[#FF5C9A] hover:underline cursor-pointer"
               >
-                Show all days in November
+                Show all days this month
               </button>
             )}
           </div>
 
-          {/* Weekday Headers (Nov 1, 2026 is Sunday) */}
+          {/* Weekday Headers */}
           <div className="grid grid-cols-7 gap-1.5 text-center font-mono-tabular text-[11px] uppercase tracking-wider text-neutral-400 pb-2">
             {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((d) => (
               <div key={d}>{d}</div>
@@ -286,7 +299,10 @@ export const NewReleasesSection: React.FC<NewReleasesSectionProps> = ({
           </div>
 
           <div className="grid grid-cols-7 gap-1.5">
-            {NOV_2026_DAYS.map((iso, idx) => {
+            {Array.from({ length: monthMeta.firstWeekday }).map((_, blankIdx) => (
+              <div key={`blank-${blankIdx}`} aria-hidden="true" />
+            ))}
+            {monthMeta.days.map((iso, idx) => {
               const dayItems = countsByDate[iso] || [];
               const diff = diffDaysFromToday(iso);
               const isToday = diff === 0;

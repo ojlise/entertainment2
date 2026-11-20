@@ -1,6 +1,10 @@
 import React from "react";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { CatalogItem, PLATFORM_COLORS } from "../data/catalog";
+import {
+  CatalogItem,
+  LAST_UPDATED_LABEL,
+  PLATFORM_COLORS,
+} from "../data/catalog";
 import heroCinemaImg from "../assets/images/hero_cinema_editorial_1795144398277.jpg";
 
 interface HeroSpotlightProps {
@@ -27,6 +31,10 @@ export const HeroSpotlight: React.FC<HeroSpotlightProps> = ({
   onFilterAcclaimed,
 }) => {
   const platColor = PLATFORM_COLORS[featuredItem.platform] || "#C81E66";
+  const editionMonth = new Date().toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+  });
 
   return (
     <section id="top" className="pt-8 pb-6 sm:pt-12 sm:pb-8">
@@ -37,7 +45,7 @@ export const HeroSpotlight: React.FC<HeroSpotlightProps> = ({
           <div className="lg:col-span-7 flex flex-col justify-between py-2">
             <div>
               <p className="font-mono-tabular text-xs uppercase tracking-widest text-neutral-500 dark:text-neutral-400">
-                November 2026 Edition · Updated Nov 19, 2026
+                {editionMonth} Edition · Updated {LAST_UPDATED_LABEL}
               </p>
 
               <h1 className="mt-3 font-display font-extrabold text-4xl sm:text-5xl lg:text-[3.5rem] leading-[0.98] tracking-tight text-[#14161C] dark:text-[#ECEEF4] text-balance max-w-2xl">
